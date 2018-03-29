@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="google-site-verification" content="isN_fBBPJLIh30vX7hHH3FgapPizXjut6Y2PoitLNuU" /> <!-- for google Verifying domains for push notifications -->
     <title>TravelWorld</title>
     <%= csrf_meta_tags %>
 
@@ -16,11 +17,8 @@
 
   <body>
     <%= render "layouts/header" %>
-
     <div class="container">
       <div class="row">
-
-
         <!-- flash message 樣式 -->
         <% if flash[:notice] %>
         <div class="container">
@@ -43,11 +41,8 @@
           </div>
         </div>
         <% end %>
-
       </div>
     </div>
-
-    <%= yield %>
-    
+    <%= yield %>   
   </body>
 </html>

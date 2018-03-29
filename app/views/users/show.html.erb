@@ -21,9 +21,9 @@
     <div class="col-12 col-md-6">
       <ul class="list-group">
         <li class="list-group-item list-group-item-light"></li>
-        <li class="list-group-item list-group-item-warning text-center">貢獻了<%= @events_of_user.count %>個行程！</li>
+        <li class="list-group-item list-group-item-warning text-center">貢獻了<%= @contributed_events.count %>個行程！</li>
         <li class="list-group-item list-group-item-light"></li>
-        <li class="list-group-item list-group-item-info text-center">恭喜！被複製了x個行程！</li>
+        <li class="list-group-item list-group-item-info text-center">恭喜！被複製了<%= @cloned_events.count %>個行程！</li>
         <li class="list-group-item list-group-item-light"></li>
         <li class="list-group-item list-group-item-success text-center">收藏了<%= @favorited_events.count %>個行程！</li>
         <li class="list-group-item list-group-item-light"></li>
@@ -31,7 +31,7 @@
       <div class="card border-info mb-3">
         <div class="card-header text-center">目前積分</div>
           <div class="card-body text-info">
-          <h2 class="card-title">23分！</h2>
+          <h2 class="card-title"><%= @point %>分！</h2>
           <p class="card-text">1個行程被複製2分，貢獻1個行程1分</p>
         </div>
       </div>

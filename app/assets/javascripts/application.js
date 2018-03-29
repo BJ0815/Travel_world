@@ -19,4 +19,3 @@
 //= require bootstrap
 //= require_directory
 //= require_tree .
-

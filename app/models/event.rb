@@ -1,11 +1,9 @@
 class Event < ApplicationRecord
-  #belongs_to :user, counter_cache: true
-
   has_many :events_of_users, dependent: :destroy
+  has_many :users, through: :events_of_users
   
   has_many :favorites, dependent: :destroy
   has_many :favorited_users, through: :favorites, source: :user
-
   has_many :replies, -> {order("created_at DESC")}, dependent: :destroy
 
   has_many :schedules, -> {order("day ASC")}, dependent: :destroy

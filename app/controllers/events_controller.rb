@@ -2,7 +2,6 @@ class EventsController < ApplicationController
   before_action :find_event, except: [:index, :search]
   before_action :authenticate_user!, except: [:index, :show, :search]
 
-
   def index
     @events = Event.all.order('favorites_count DESC').limit(5)
   end

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:show, :edit, :update, :events]
 
+  before_action :set_user, only: [:show, :edit, :update, :events]
 
   def events
     @favorites = @user.favorited_events.all
@@ -23,7 +23,10 @@ class UsersController < ApplicationController
 
   def show
     @favorited_events = @user.favorited_events
-    @events_of_user = @user.events
+    @contributed_events = @user.contributed_events.where(privacy: false)
+    @cloned_events = EventsOfUser.where(org_user: @user)
+    @point = @contributed_events.count + (@cloned_events.count)*2
+    @user.update_attributes(point: @point)
   end
 
   private

@@ -252,11 +252,9 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  fb_config = Rails.application.config_for(:facebook)
-  google_config = Rails.application.config_for(:google)
 
-  config.omniauth :facebook, fb_config["app_id"], fb_config["secret"], scope: "public_profile,email", info_fields: "email,name,gender", image_size: "large", callback_url: "http://localhost:3000/users/auth/facebook/callback"
-  config.omniauth :google_oauth2, google_config["GOOGLE_CLIENT_ID"], google_config["GOOGLE_CLIENT_SECRET"],{access_type: "offline", approval_prompt: ""}
+  config.omniauth :facebook, ENV['FACEBOOK_CLIENT_ID'], ENV['FACEBOOK_CLIENT_SECRET'], scope: "public_profile,email", info_fields: "email,name,gender", image_size: "large"
+  config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"],{access_type: "offline", approval_prompt: ""}
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
