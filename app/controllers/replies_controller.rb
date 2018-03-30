@@ -1,5 +1,6 @@
 class RepliesController < ApplicationController
   before_action :authenticate_user!
+  before_action :authenticate_suspend
 
   def create
     @event = Event.find(params[:event_id])

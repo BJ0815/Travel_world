@@ -17,6 +17,14 @@ class ApplicationController < ActionController::Base
 
   #設定待選清單
   private
+
+  def authenticate_suspend
+    if current_user.suspend?
+      flash[:alert] = "你目前被停權了!如有問題請聯絡我們！"
+      redirect_to root_path
+    end
+  end
+
   def current_wish
     @wish || set_wish # return @wish if @wish exist, or call set_wish
   end
