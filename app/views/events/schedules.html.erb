@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-12">       
+    <div class="col-12 col-md-12">
       <h1 class="card-header">填入住宿資訊</h1>
         <%= form_tag schedulep_event_path, :method => :patch do %>
           <% @schedule.each do |schedule| %>
@@ -15,13 +15,13 @@
                 <%= f.text_field :address, class: "form-control" %>
               </div>
               <div class="row justify-content-center">
-              <div class="col-12 col-md-3">              
+              <div class="col-12 col-md-3">
                 <div class="form-group">
                   <%= f.label :check_in, "check in 時間" %>
                   <%= f.time_field :check_in, class: "form-control" %>
                 </div>
               </div>
-              <div class="col-12 col-md-3">              
+              <div class="col-12 col-md-3">
                 <div class="form-group">
                   <%= f.label :check_out, "check out 時間" %>
                   <%= f.time_field :check_out, class: "form-control" %>
@@ -52,9 +52,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">返回</button>
-          <%= submit_tag "搜尋景點", class: "btn btn-primary" %>
           <%= link_to "搜尋景點", search_event_schedules_path(@event.id) ,method: :get, class: "btn btn-primary"%>
-          
+
         <% end %>
         </div>
         </div>

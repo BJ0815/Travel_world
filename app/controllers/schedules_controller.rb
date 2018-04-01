@@ -16,12 +16,12 @@ class SchedulesController < ApplicationController
   end
 
   #搜尋行程default
-  #根據前面輸入的國家和地點自動帶入(先寫死)
+  #根據前面輸入的國家和地點自動帶入
   def search
-    puts params[:event_id]
+    #puts params[:event_id]
     event = Event.find(params[:event_id])
-    
-    destination = event.country  + event.district + Category.first.name
+    space =" "
+    destination = event.country + space  + event.district + space + Category.first.name
     puts destination
     @client = GooglePlaces::Client.new(GoogleKey)
     @spots= @client.spots_by_query(destination,{ language: I18n.locale})
@@ -34,7 +34,7 @@ class SchedulesController < ApplicationController
 
     #category = Category.first
      category = Category.find_by(id:params[:category])
-    
+
     if category.nil?
       #@category = Category.find(params[:category])
       destination = params[:destination]
